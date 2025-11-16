@@ -1,0 +1,19 @@
+import { Pool } from 'pg';
+
+/**
+ * @typedef {import('./types').DbPool} DbPool
+ */
+
+const DB_CONNECTION_STRING = process.env.DB_CONNECTION_STRING ?? '';
+
+/**
+ * @function initDb
+ * @description returns a new instance of the database connection
+ * @returns {DbPool}
+ */
+
+export const initDb = () => {
+  const connectionString = DB_CONNECTION_STRING;
+  const dbPool = new Pool({ connectionString });
+  return dbPool;
+};
