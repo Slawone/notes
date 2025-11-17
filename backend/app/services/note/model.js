@@ -21,9 +21,10 @@ export class Model {
    */
 
   async getNotes() {
-    const sql = 'SELECT * FROM notes';
+    const sql = 'SELECT * FROM "Notes"';
     const queryResult = await this.pool.query(sql);
     const notes = queryResult.rows ?? null;
+
     if (!notes) throw new Error('no data in the database');
     return notes;
   }
