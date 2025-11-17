@@ -1,8 +1,11 @@
 /**
- * @template {Function} F
- * @param {F} fn
- * @param {object} deps
- * @returns {Function}
+ * @function toPartial
+ * @description to the func
+ * @param {Function} func - Функция, принимающая deps первым аргументом
+ * @param {object} deps - Зависимости для внедрения
+ * @returns {Function} Функция с предзаполненными зависимостями
  */
 
-export const toPartial = (fn, deps) => (/** @type {any} */ ...args) => fn(deps, ...args);
+export const toPartial = (func, deps) => {
+  return func.bind(null, deps);
+};

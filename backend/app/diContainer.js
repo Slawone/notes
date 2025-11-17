@@ -15,7 +15,7 @@ import { initDeps as initNoteDeps } from './services/note/service.js';
 import { initService as initNoteService } from './services/note/service.js';
 
 const noteProps = { dbPool };
-const noteDeps = initNoteDeps(noteProps);
+const noteDeps = initNoteDeps(noteProps.dbPool);
 const noteService = initNoteService(noteDeps);
 
 /********************************************

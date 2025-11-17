@@ -3,6 +3,7 @@ import { toPartial } from '../../utils/transforms/toPartial.js';
 
 /**
  * @typedef {import('./types').NoteFromDb} Note
+ * @typedef {import('./types').DbPool} DbPool
  */
 
 /**
@@ -20,12 +21,12 @@ const getAllNotes = async (deps) => {
 /**
  * @function initDeps
  * @description initialized depending on the service
- * @param {object} props - {dbPool: Pool}
+ * @param {DbPool} props - {dbPool: Pool}
  * @returns {object}
  */
 
 export const initDeps = (props) => ({
-  model: new Model(props.dbPool),
+  model: new Model(props),
 });
 
 /**

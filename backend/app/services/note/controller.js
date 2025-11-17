@@ -24,8 +24,7 @@ export const initController = (diContainer) => {
       url: '/notes',
       handler: async (req, reply) => {
         const notes = await service.getAllNotes();
-        console.log(notes);
-        
+
         reply.send({ notes });
       },
     },
